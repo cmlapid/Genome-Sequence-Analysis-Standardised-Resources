@@ -13,7 +13,7 @@ This tutorial was written by Jacqui Keane based on material from Thomas Keane, V
 
 # Duration
 
-4 hours
+3 hours
 
 # Key topics
 
@@ -41,11 +41,11 @@ On completion of the tutorial, you can expect to be able to:
 
 # Activities
 
--   Lecture: 1h
+-   Lecture: 30 minutes
 
--   Practical exercises: 2.5h
+-   Practical exercises: 2 hours
 
--   Quiz: 0.5h
+-   Quiz: 30 minutes
 
 # Manual and practical execises
 
@@ -63,19 +63,15 @@ On completion of the tutorial, you can expect to be able to:
 
 Pre-recorded lecture
 
-# Check you knowledge quiz
-
-Questions
-
-# Summary of this module
-
 # Teaching guidance
 
 [Instructor notes](module2_instructor_notes.qmd)
 
 # Datasets
 
-Practice files for this module can be found on [Github](https://github.com/WCSCourses/Precourses_DataRepo/tree/main/course_data_2025/linux_googlecolab_data).
+We recommend that you follow the exercises using the course virtual machine.
+
+The datasets used in this exercise are stored on the virtual machine.
 
 # Platform Guidance
 

@@ -3,9 +3,11 @@ title: "Exercises"
 format: html
 ---
 
-## NGS Data formats and QC
+## File Formats and QC
 
 ### Introduction
+
+***For the following exercises, you would need access to the course Virtual Machine.***
 
 There are several file formats for storing Next Generation Sequencing (NGS) data. In this tutorial we will look at some of the most common formats for storing NGS reads and variant data. We will cover the following formats:
 
@@ -59,7 +61,7 @@ This should return the help message for samtools, bcftools and picard tools resp
 
 To get started with the tutorial, go to the first section: Data formats
 
-## Data formats for NGS data
+## Data formats
 
 Here we will take a closer look at some of the most common NGS data formats. First, check you are in the correct directory:
 
@@ -323,7 +325,7 @@ Often it is not enough to know variant sites only. For instance, we don’t know
 
 Now continue to the next section of the tutorial: QC assessment of NGS data.
 
-### QC assessment of NGS data
+### QC assessment
 
 QC is an important part of any analysis. In this section we are going to look at some of the metrics and graphs that can be used to assess the QC of NGS data.
 
@@ -521,4 +523,4 @@ To convert a VCF file to BCF, we can run a similar command. If we want to keep t
 
 `bcftools view -O b -o data/1kg_2.bcf data/1kg.vcf.gz`
 
-Congratulations you have reached the end of the Data formats and QC tutorial!
+***Congratulations you have reached the end of the File Formats and QC tutorial!***

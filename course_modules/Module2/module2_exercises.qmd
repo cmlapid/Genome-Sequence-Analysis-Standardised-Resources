@@ -7,6 +7,8 @@ format: html
 
 ### Introduction
 
+***For the following exercises, you would need access to the course Virtual Machine.***
+
 Sequence alignment in NGS is the process of determining the most likely source of the observed DNA sequencing read within the reference genome sequence.
 
 ### ![sequence alignment](images/sequence%20alignment.png)
@@ -59,8 +61,6 @@ This should return the help message for samtools, bwa and Picard tools respectiv
 
 To get started with the tutorial, head to the first section: Performing read alignment
 
-## 
-
 ## Performing Read Alignment
 
 Here we will use the BWA aligner to align a smll set of Illumina sequencing data to the Mus Musculus reference genome. We will align genomic sequence (from Whole-Genome Sequencing) from a mouse embryo which has been mutagenised while the one-cell stage using CRISPR-Cas9 and a gRNA targeting an exon of the Tyr gene. The successful mutation of the gene will delete one or both alleles. A bi-allelic null Tyr mouse will be albino, but otherwise healthy.
@@ -84,8 +84,6 @@ View the file with *zless* (we use *zless* instead of *less* because the file is
 `zless GRCm38.68.dna.toplevel.chr7.fa.gz`
 
 **Q1: What is the length of chromosome 7 of the mouse genome? (Hint: Look at the fasta header for chromosome 7)**
-
-`................................................................................................`
 
 Similar to a BAM file, to allow fast retrieval of data, an index file is often required. You should check for the presence of fasta indexes for the genome in the ‘*ref* ’ directory:
 
@@ -118,8 +116,6 @@ Now use *samtools* to convert the SAM file *md5638.sam* created in the previous 
 `samtools view -O BAM -o md5638.bam md5638.sam`
 
 **Q2: How much space is saved by using a BAM file instead of a SAM file?**
-
-`................................................................................................`
 
 ### Sort and index the BAM file
 
@@ -158,8 +154,6 @@ Now run *MarkDuplicates* using the ‘*I=*’ option to specify the input BAM fi
 `picard MarkDuplicates I=md5638.sorted.bam O=md5638.markdup.bam M=md5638.metrics.txt`
 
 **Q3: From looking at the output metrics file - how many reads were marked as duplicates? What was the percent duplication?**
-
-`................................................................................................`
 
 Don’t forget to generate an index for the new bam file using samtools.
 
@@ -359,15 +353,15 @@ Your IGV session should look similar to:
 
 ### ![](images/igv5.png)
 
-3.7 Exercises
+**3.7 Exercises**
 
-Go to chromosome chr7, positions 87,483,625-87,484,330 using the navigation bar across the top. Take in the glorious view of a genome pileup. Stop and smell the roses! Click on stuff!
+**Q1: Go to chromosome chr7, positions 87,483,625-87,484,330 using the navigation bar across the top. Take in the glorious view of a genome pileup. Stop and smell the roses! Click on stuff!**
 
 Scroll around, zoom in and out a bit!
 
-2\. Go back to chromosome 7:87,483,625-87,484,330. What is the (rough) coverage across this region? (Hint: Look at the coverage track)
+**Q2: Go back to chromosome 7:87,483,625-87,484,330. What is the (rough) coverage across this region? (Hint: Look at the coverage track)**
 
-Can you spot the three mutant variants (two small and one larger) in this region? State what the evidence is for them?
+**Q3: Can you spot the three mutant variants (two small and one larger) in this region? State what the evidence is for them?**
 
 **Hints**
 
@@ -379,7 +373,7 @@ Can you spot the three mutant variants (two small and one larger) in this region
 
 Once you’ve spotted the large change look at reference sequence the edges of the mutation to hazard a guess as to its mechanism.
 
-4\. Can you venture a guess as to what happened here? Why are these mutations present?
+**Q4. Can you venture a guess as to what happened here? Why are these mutations present?**
 
 **Congratulations** you have completed the Read Alignment tutorial. If you have time left then continue to the next (optional) section of the tutorial: Alignment workflows.
 
@@ -541,24 +535,24 @@ To load the merged BAM file, on the top menu bar go to ’***File –\> Load fro
 
 ![](images/load%20align2.png){width="373"}
 
-### Exercises
+### Visualise the Alignment Exercises
 
-**1. Go to Chromosome IV and position 764,292. (Hint: use the navigation bar across the top)**
+**Q1: Go to Chromosome IV and position 764,292. (Hint: use the navigation bar across the top)**
 
-**2. What is the reference base at this position?**
+**Q2: What is the reference base at this position?**
 
-**3. Do the reads agree with the reference base?**
+**Q3: Do the reads agree with the reference base?**
 
-**4. What about the adjacent position (IV:764,293)? What is the reference base at this position? Is it supported by the reads?**
+**Q4: What about the adjacent position (IV:764,293)? What is the reference base at this position? Is it supported by the reads?**
 
-**5. Go to Chromosome IV and position 766,589.**
+**Q5: Go to Chromosome IV and position 766,589.**
 
-**6. What sort of mutation are the alignments indicating might be present?**
+**Q6: What sort of mutation are the alignments indicating might be present?**
 
-**7. Go to Chromosome IV and position 770,137 using the navigation bar across the top.**
+**Q7: Go to Chromosome IV and position 770,137 using the navigation bar across the top.**
 
-**8. What sort of mutation are the alignments indicating might be present? Is there anything in the flanking sequence of the reference genome that might make you suspicious about this mutation?**
+**Q8: What sort of mutation are the alignments indicating might be present? Is there anything in the flanking sequence of the reference genome that might make you suspicious about this mutation?**
 
-**9. Convert the BAM file to a CRAM file**
+**Q9: Convert the BAM file to a CRAM file**
 
-You have reached the end of the Read Alignment tutorial.
+***You have reached the end of the Read Alignment tutorial.***

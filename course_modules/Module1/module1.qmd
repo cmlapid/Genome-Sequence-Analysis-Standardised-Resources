@@ -5,7 +5,7 @@ format: html
 
 # Module Title
 
-***NGS Data formats and QC***
+**NGS Data formats and QC**
 
 # Authors
 
@@ -13,7 +13,7 @@ This tutorial was written by Jacqui Keane and Sara Sjunnebo based on material fr
 
 # Duration
 
-3 hours
+2 hours
 
 # Key topics
 
@@ -37,11 +37,11 @@ In this module, learners will look at data formats in detail. At the end of the 
 
 # Activities
 
--   Lecture: 1 hour
+-   Lecture: 30 minutes
 
--   Practical exercises: 1.5 hours
+-   Practical exercises: 1 hour
 
--   Assessment quiz: 0.5 hours
+-   Assessment quiz: 30 minutes
 
 # Manual and practical execises
 
@@ -59,10 +59,6 @@ In this module, learners will look at data formats in detail. At the end of the 
 
 [Pre-recorded lecture, temporally stored on the LMS](https://lms.wellcomeconnectingscience.org/mod/page/view.php?id=8519)
 
-# Check you knowledge quiz
-
-[Questions](module1_assessment.qmd)
-
 # Summary of this module
 
 # Teaching guidance
@@ -71,7 +67,11 @@ In this module, learners will look at data formats in detail. At the end of the 
 
 # Datasets
 
-Practice files for this module can be found on [Github](https://github.com/WCSCourses/Precourses_DataRepo/tree/main/course_data_2025/linux_googlecolab_data).
+We recommend that you follow the exercises using the course virtual machine.
+
+The datasets used in this exercise are stored on the virtual machine.
+
+Alternatively, for this module, if you are working on your own Linux system, you can use the exercise input files available on [GitHub](https://github.com/WCSCourses/Precourses_DataRepo/tree/main/course_data_2025/linux_googlecolab_data).
 
 # Platform Guidance
 
