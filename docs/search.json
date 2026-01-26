@@ -774,7 +774,7 @@
     "href": "course_modules/Module4/module4.html",
     "title": "Overview",
     "section": "",
-    "text": "Module Title\nStructural Variation Calling\n\n\nAuthors\nThis tutorial was written by Jacqui Keane based on material from Thomas Keane.\n\n\nDuration\n3 hours\n\n\nKey topics\n\n\nLearning outcomes\n\nUnderstand the background and theory of structural variation\nCall structural variants using standard tools\nVisualise structural variants using standard tools\nCall structural variants from long read data\nUse bedtools to do regional comparisons over genomic coordinates\n\n\n\nActivities\n\nLecture: 1 hour\nPractical exercises: 1.5 hours\nAssessment quiz: 0.5 hours\n\n\n\nManual\nModule manual\nExercises\nSolutions\n\n\nPresentation slides\n(PPT/PDF, to be generated from the module manual. Instructions on how to that will be added here.)\n\n\nLecture recording, notes and scripts\n\n\nCheck you knowledge quiz\nQuestions\n\n\nSummary of this module\n\n\nTeaching guidance\nInstructor notes\n\n\nDatasets\nPractice files for this module can be found on Github.\n\n\nPlatform Guidance\nGuide",
+    "text": "Module Title\nStructural Variation Calling\n\n\nAuthors\nThis tutorial was written by Jacqui Keane based on material from Thomas Keane.\n\n\nDuration\n3.5 hours\n\n\nKey topics\n\n\nLearning outcomes\n\nUnderstand the background and theory of structural variation\nCall structural variants using standard tools\nVisualise structural variants using standard tools\nCall structural variants from long read data\nUse bedtools to do regional comparisons over genomic coordinates\n\n\n\nActivities\n\nLecture: 1 hour\nPractical exercises: 2 hours\nAssessment quiz: 0.5 hours\n\n\n\nManual\nModule manual\nExercises\nSolutions\n\n\nPresentation slides\n(PPT/PDF, to be generated from the module manual. Instructions on how to that will be added here.)\n\n\nLecture recording, notes and scripts\n\n\nTeaching guidance\nInstructor notes\n\n\nDatasets\nWe recommend that you follow the exercises using the course virtual machine.\nThe datasets used in this exercise are stored on the virtual machine.\n\n\nPlatform Guidance\nGuide",
     "crumbs": [
       "Home",
       "Structural Variation Calling",
@@ -858,55 +858,7 @@
     "href": "course_modules/Module4/module4_solutions.html",
     "title": "Solutions",
     "section": "",
-    "text": "No questions in this section.",
-    "crumbs": [
-      "Home",
-      "Structural Variation Calling",
-      "Solutions"
-    ]
-  },
-  {
-    "objectID": "course_modules/Module4/module4_solutions.html#structural-variation-calling---solutions",
-    "href": "course_modules/Module4/module4_solutions.html#structural-variation-calling---solutions",
-    "title": "Solutions",
-    "section": "",
-    "text": "No questions in this section.",
-    "crumbs": [
-      "Home",
-      "Structural Variation Calling",
-      "Solutions"
-    ]
-  },
-  {
-    "objectID": "course_modules/Module4/module4_solutions.html#looking-at-structural-variants-in-vcf",
-    "href": "course_modules/Module4/module4_solutions.html#looking-at-structural-variants-in-vcf",
-    "title": "Solutions",
-    "section": "2 Looking at Structural Variants in VCF",
-    "text": "2 Looking at Structural Variants in VCF\n\n2.1 Exercises\n1. What does the CIPOS format tag indicate? Confidence interval around POS for imprecise variants\n2. What does the PE tag indicate? Number of paired-end reads supporting the variant across all samples\n3. What tag is used to describe an inversion event? INV\n4. What tag is used to describe a duplication event? DUP\n5. How many deletions were called in total? (Hint: DEL is the info field for a deletion. The -c option of the grep command can be used to return a count of matches.), try\ngrep -c \"&lt;DEL&gt;\" ERR1015121.vcf\n6. What type of event is predicted at IV:437148? What is the length of the SV? How many paired-end reads and split-reads support this SV variant call? Deletion -370 20 PE 21 split\ngrep \"437148\" ERR1015121.vcf\n7. What is the total number of SV calls predicted on the IV chromosome? 10, try\ngrep -c \"^IV\" ERR1015121.vcf",
-    "crumbs": [
-      "Home",
-      "Structural Variation Calling",
-      "Solutions"
-    ]
-  },
-  {
-    "objectID": "course_modules/Module4/module4_solutions.html#calling-structural-variants",
-    "href": "course_modules/Module4/module4_solutions.html#calling-structural-variants",
-    "title": "Solutions",
-    "section": "3 Calling Structural Variants",
-    "text": "3 Calling Structural Variants\nQ: mean=454.87 std=86.29\n\n3.1 Breakdancer\n\n\n3.1.1 Exercises\ngrep \"83065\" ERR1015121.breakdancer.out\n1. Inversion\n2. -116,\n3. 42\ngrep \"258766\" ERR1015121.breakdancer.out\n4. Deletion (7325, 99)\n5. grep DEL | awk OFS= breakdancer.dels.bed | awk '{print $1\"\\t\"$2\"\\t\"$5\"\\t\"$7\"\\t\"$9}' &gt; breakdancer.dels.bed",
-    "crumbs": [
-      "Home",
-      "Structural Variation Calling",
-      "Solutions"
-    ]
-  },
-  {
-    "objectID": "course_modules/Module4/module4_solutions.html#calling-structural-variants-from-long-reads",
-    "href": "course_modules/Module4/module4_solutions.html#calling-structural-variants-from-long-reads",
-    "title": "Solutions",
-    "section": "4 Calling Structural Variants from Long Reads",
-    "text": "4 Calling Structural Variants from Long Reads\n\n3.2 Inspecting SVs with IGV\n\n\n3.2.1 Exercises\n1. Yes, a deletion (view as paired, sort by insert size, squish).\n2. There are very few reads mapping, the reads that are mapped are of low mapQ and it has a SV score = 99\n3. Size estimate? ~7.5k\nWas the deletion at II:258766 also called by the other structural variant software and was the predicted size?\n5. Yes, SVTYPE=DEL, SVLEN=-7438\n6. DEL called by breakdancer (score=59). Not found by other caller Lumpy.\n7. Yes, 2 reads support (red).\n\n\n3.3 Lumpy\n\n\n3.3.1 Exercises\n1. The -F option in samtools view excludes reads matching the specified flag\n2. reads in proper pair | read unmapped | mate unmapped | not primary alignment | PCR optical duplicate\n3. Deletion -625\n4. Deletion -369\n\n\n4 Calling Structural Variants from Long Reads\n4.0.1 Align the reads with minimap and convert to bam\nminimap2 -t 2 -x map-pb -a ../ref/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz YPS128.filtered_subreads.10x.fastq.gz | samtools view -b -o YPS128.filtered_subreads.10x.bam -\n4.0.2 Sort the bam\nsamtools sort -T temp -o YPS128.filtered_subreads.10x.sorted.bam YPS128.filtered_subreads.10x.bam\nsamtools calmd -b YPS128.filtered_subreads.10x.sorted.bam ../ref/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz &gt; YPS128.filtered_subreads.10x.sorted.calmd.bam\n4.0.3 Index the sorted bam\nsamtools index YPS128.filtered_subreads.10x.sorted.calmd.bam\n\n\n5 Bedtools\n\n\n4.0.4 Call SVs with sniffles\nsniffles -m YPS128.filtered_subreads.10x.sorted.calmd.bam -v YPS128.filtered_subreads.10x.vcf\n\n\n4.0.5 Exercises\n1. What sort of SV was called at on chromosome ‘XV’ at position 854271? __Deletion_\n2. What is the length of the SV? 345\n3. How many reads are supporting the SV? 17 (RE tag)\n4. What sort of SV was called at on chromosome ‘XI’ at position 74608? __Insertion_\n5. What is the length of the SV? 358\n6. How many reads are supporting the SV? 15\n7. How many inversions were called in the VCF? Note inversions are denoted by the type ‘INV’.\nNone - no inversions were called\n8. How many duplications were called in the VCF? Note duplications are denoted by the type ‘DUP’. 2\n\n\n5 Bedtools\n\n\n5.1 Exercises\n1. How many SVs found in ERR1015069.dels.vcf overlap with a gene? (Hint: Use bedtools intersect command) 18, try (note the -u parameter is required to get the unique number of SVs)\nbedtools intersect -u -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | wc -l\n2. How many SVs found in ERR1015069.dels.vcf do not overlap with a gene? (Hint: note the -v parameter to bedtools intersect) 9, try\nbedtools intersect -v -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | wc -l\n3. How many SVs found in ERR1015069.dels.vcf overlap with a more strict definition of 50%?\n14, try\nbedtools intersect -u -f 0.5 -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | wc -l\n4. How many features does the deletion at VII:811446 overlap with? What type of genes? Note you will need to also use the -wb option in bedtools intersect.\nbedtools intersect -wb -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | grep 811446\n4 features, all of them are protein coding genes (biotype=protein_coding)\n5. How many features does the deletion at XII:650823 overlap with? What type of genes? Note you will need to also use the -wb option in bedtools intersect.\nbedtools intersect -wb -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | grep 811446\n2 features, all of them are protein coding genes (biotype=protein_coding)\n6. What is the closest gene to the structural variant at IV:384220 in ERR1015069.dels.vcf?\nYDL037C, try\nbedtools closest -d -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3| grep IV | grep 384220\n5. How many SVs overlap between the two files ERR1015069.dels.vcf and ERR1015121.dels.vcf? 27, try\nbedtools intersect -u -a ERR1015069.dels.vcf -b ERR1015121.dels.vcf | wc -l\n6. How many SVs have a 90% reciprocal overlap between the two files ERR1015069.dels.vcf and ERR1015121.dels.vcf (Hint: first find the option for reciprocal overlap by typing: bedtools intersect -h) 24, try\nbedtools intersect -u -r -f 0.9 -a ERR1015069.dels.vcf -b ERR1015121.dels.vcf | wc -l",
+    "text": "Structural variants\nThe solutions to the exercises can be found on the LMS.",
     "crumbs": [
       "Home",
       "Structural Variation Calling",
@@ -933,6 +885,18 @@
     "title": "Introduction",
     "section": "",
     "text": "The materials provided in this repository are FREE to use. This work is licensed under a Creative Commons Attribution 4.0 International License. Reuse is encouraged with acknowledgement.\n\nAll materials to be added in markdown (with extension .qmd), except for recorded lectures.\nThere are no slides on this website. Instead, you will find instructions on how to generate slides from the markdown content.\n\nWelcome to the course\nMeet the team\nGlossary"
+  },
+  {
+    "objectID": "course_modules/Module4/module4_platform_guidance.html",
+    "href": "course_modules/Module4/module4_platform_guidance.html",
+    "title": "Platform guidance",
+    "section": "",
+    "text": "Please check the VM guide on how to download and install the course VM.",
+    "crumbs": [
+      "Home",
+      "Structural Variation Calling",
+      "Platform guidance"
+    ]
   },
   {
     "objectID": "course_modules/Module4/module4_manual.html",

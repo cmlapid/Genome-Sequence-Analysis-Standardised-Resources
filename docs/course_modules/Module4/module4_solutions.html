@@ -666,29 +666,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#structural-variation-calling---solutions" id="toc-structural-variation-calling---solutions" class="nav-link active" data-scroll-target="#structural-variation-calling---solutions">1 Structural Variation Calling - Solutions</a></li>
-  <li><a href="#looking-at-structural-variants-in-vcf" id="toc-looking-at-structural-variants-in-vcf" class="nav-link" data-scroll-target="#looking-at-structural-variants-in-vcf">2 Looking at Structural Variants in VCF</a>
-  <ul class="collapse">
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">2.1 Exercises</a></li>
-  </ul></li>
-  <li><a href="#calling-structural-variants" id="toc-calling-structural-variants" class="nav-link" data-scroll-target="#calling-structural-variants">3 Calling Structural Variants</a>
-  <ul class="collapse">
-  <li><a href="#breakdancer" id="toc-breakdancer" class="nav-link" data-scroll-target="#breakdancer">3.1 Breakdancer</a></li>
-  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1">3.1.1 Exercises</a></li>
-  </ul></li>
-  <li><a href="#calling-structural-variants-from-long-reads" id="toc-calling-structural-variants-from-long-reads" class="nav-link" data-scroll-target="#calling-structural-variants-from-long-reads">4 Calling Structural Variants from Long Reads</a>
-  <ul class="collapse">
-  <li><a href="#inspecting-svs-with-igv" id="toc-inspecting-svs-with-igv" class="nav-link" data-scroll-target="#inspecting-svs-with-igv">3.2 Inspecting SVs with IGV</a></li>
-  <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2">3.2.1 Exercises</a></li>
-  <li><a href="#lumpy" id="toc-lumpy" class="nav-link" data-scroll-target="#lumpy">3.3 Lumpy</a></li>
-  <li><a href="#exercises-3" id="toc-exercises-3" class="nav-link" data-scroll-target="#exercises-3">3.3.1 Exercises</a></li>
-  <li><a href="#calling-structural-variants-from-long-reads-1" id="toc-calling-structural-variants-from-long-reads-1" class="nav-link" data-scroll-target="#calling-structural-variants-from-long-reads-1">4 Calling Structural Variants from Long Reads</a></li>
-  <li><a href="#bedtools" id="toc-bedtools" class="nav-link" data-scroll-target="#bedtools">5 Bedtools</a></li>
-  <li><a href="#call-svs-with-sniffles" id="toc-call-svs-with-sniffles" class="nav-link" data-scroll-target="#call-svs-with-sniffles">4.0.4 Call SVs with sniffles</a></li>
-  <li><a href="#exercises-4" id="toc-exercises-4" class="nav-link" data-scroll-target="#exercises-4">4.0.5 Exercises</a></li>
-  <li><a href="#bedtools-1" id="toc-bedtools-1" class="nav-link" data-scroll-target="#bedtools-1">5 Bedtools</a></li>
-  <li><a href="#exercises-5" id="toc-exercises-5" class="nav-link" data-scroll-target="#exercises-5">5.1 Exercises</a></li>
-  </ul></li>
+  <li><a href="#structural-variants" id="toc-structural-variants" class="nav-link active" data-scroll-target="#structural-variants">Structural variants</a></li>
   </ul>
 </nav>
     </div>
@@ -714,125 +692,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="structural-variation-calling---solutions" class="level2">
-<h2 class="anchored" data-anchor-id="structural-variation-calling---solutions">1 Structural Variation Calling - Solutions</h2>
-<p>No questions in this section.</p>
-</section>
-<section id="looking-at-structural-variants-in-vcf" class="level2">
-<h2 class="anchored" data-anchor-id="looking-at-structural-variants-in-vcf">2 Looking at Structural Variants in VCF</h2>
-<section id="exercises" class="level3">
-<h3 class="anchored" data-anchor-id="exercises">2.1 Exercises</h3>
-<p>1. What does the CIPOS format tag indicate? <strong>Confidence interval around POS for imprecise variants</strong></p>
-<p>2. What does the PE tag indicate? <strong>Number of paired-end reads supporting the variant across all samples</strong></p>
-<p>3. What tag is used to describe an inversion event? <strong>INV</strong></p>
-<p>4. What tag is used to describe a duplication event? <strong>DUP</strong></p>
-<p>5. How many deletions were called in total? <strong>(Hint:</strong> DEL is the info field for a deletion. The -c option of the grep command can be used to return a count of matches.), try</p>
-<p><code>grep -c "&lt;DEL&gt;" ERR1015121.vcf</code></p>
-<p>6. What type of event is predicted at <strong>IV:437148?</strong> What is the length of the SV? How many paired-end reads and split-reads support this SV variant call? Deletion <strong>-370 20 PE 21 split</strong></p>
-<p><code>grep "437148" ERR1015121.vcf</code></p>
-<p>7. What is the total number of SV calls predicted on the IV chromosome? <strong>10, try</strong></p>
-<p><code>grep -c "^IV" ERR1015121.vcf</code></p>
-</section>
-</section>
-<section id="calling-structural-variants" class="level2">
-<h2 class="anchored" data-anchor-id="calling-structural-variants">3 Calling Structural Variants</h2>
-<p>Q: mean=454.87 std=86.29</p>
-<section id="breakdancer" class="level3">
-<h3 class="anchored" data-anchor-id="breakdancer">3.1 Breakdancer</h3>
-</section>
-<section id="exercises-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-1">3.1.1 Exercises</h3>
-<p><code>grep "83065" ERR1015121.breakdancer.out</code></p>
-<p>1. Inversion</p>
-<p>2. -116,</p>
-<p>3. 42</p>
-<p><code>grep "258766" ERR1015121.breakdancer.out</code></p>
-<p>4. Deletion (7325, 99)</p>
-<p>5. <code>grep DEL | awk OFS= breakdancer.dels.bed | awk '{print $1"\t"$2"\t"$5"\t"$7"\t"$9}' &gt; breakdancer.dels.bed</code></p>
-</section>
-</section>
-<section id="calling-structural-variants-from-long-reads" class="level2">
-<h2 class="anchored" data-anchor-id="calling-structural-variants-from-long-reads">4 Calling Structural Variants from Long Reads</h2>
-<section id="inspecting-svs-with-igv" class="level3">
-<h3 class="anchored" data-anchor-id="inspecting-svs-with-igv">3.2 Inspecting SVs with IGV</h3>
-</section>
-<section id="exercises-2" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-2">3.2.1 Exercises</h3>
-<p>1. Yes, a deletion (view as paired, sort by insert size, squish).</p>
-<p>2. There are very few reads mapping, the reads that are mapped are of low mapQ and it has a SV score = 99</p>
-<p>3. Size estimate? ~7.5k</p>
-<p>Was the deletion at II:258766 also called by the other structural variant software and was the predicted size?</p>
-<p>5. Yes, SVTYPE=DEL, SVLEN=-7438</p>
-<p>6. DEL called by breakdancer (score=59). Not found by other caller Lumpy.</p>
-<p>7. Yes, 2 reads support (red).</p>
-</section>
-<section id="lumpy" class="level3">
-<h3 class="anchored" data-anchor-id="lumpy">3.3 Lumpy</h3>
-</section>
-<section id="exercises-3" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-3">3.3.1 Exercises</h3>
-<p>1. The -F option in samtools view excludes reads matching the specified flag</p>
-<p>2. reads in proper pair | read unmapped | mate unmapped | not primary alignment | PCR optical duplicate</p>
-<p>3. Deletion -625</p>
-<p>4. Deletion -369</p>
-</section>
-<section id="calling-structural-variants-from-long-reads-1" class="level3">
-<h3 class="anchored" data-anchor-id="calling-structural-variants-from-long-reads-1">4 Calling Structural Variants from Long Reads</h3>
-<p>4.0.1 Align the reads with minimap and convert to bam</p>
-<p><code>minimap2 -t 2 -x map-pb -a ../ref/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz YPS128.filtered_subreads.10x.fastq.gz | samtools view -b -o YPS128.filtered_subreads.10x.bam -</code></p>
-<p>4.0.2 Sort the bam</p>
-<p><code>samtools sort -T temp -o YPS128.filtered_subreads.10x.sorted.bam YPS128.filtered_subreads.10x.bam</code></p>
-<p><code>samtools calmd -b YPS128.filtered_subreads.10x.sorted.bam ../ref/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz &gt; YPS128.filtered_subreads.10x.sorted.calmd.bam</code></p>
-<p>4.0.3 Index the sorted bam</p>
-<p><code>samtools index YPS128.filtered_subreads.10x.sorted.calmd.bam</code></p>
-</section>
-<section id="bedtools" class="level3">
-<h3 class="anchored" data-anchor-id="bedtools">5 Bedtools</h3>
-</section>
-<section id="call-svs-with-sniffles" class="level3">
-<h3 class="anchored" data-anchor-id="call-svs-with-sniffles">4.0.4 Call SVs with sniffles</h3>
-<p><code>sniffles -m YPS128.filtered_subreads.10x.sorted.calmd.bam -v YPS128.filtered_subreads.10x.vcf</code></p>
-</section>
-<section id="exercises-4" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-4">4.0.5 Exercises</h3>
-<p>1. What sort of SV was called at on chromosome ‘XV’ at position 854271? <strong>__Deletion_</strong></p>
-<p>2. What is the length of the SV? <strong>345</strong></p>
-<p>3. How many reads are supporting the SV? <strong>17 (RE tag)</strong></p>
-<p>4. What sort of SV was called at on chromosome ‘XI’ at position 74608? <strong>__Insertion_</strong></p>
-<p>5. What is the length of the SV? <strong>358</strong></p>
-<p>6. How many reads are supporting the SV? <strong>15</strong></p>
-<p>7. How many inversions were called in the VCF? Note inversions are denoted by the type ‘<strong>INV</strong>’.</p>
-<p>None - no inversions were called</p>
-<p>8. How many duplications were called in the VCF? Note duplications are denoted by the type ‘DUP’. <strong>2</strong></p>
-</section>
-<section id="bedtools-1" class="level3">
-<h3 class="anchored" data-anchor-id="bedtools-1">5 Bedtools</h3>
-</section>
-<section id="exercises-5" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-5">5.1 Exercises</h3>
-<p>1. How many SVs found in ERR1015069.dels.vcf overlap with a gene? (Hint: Use bedtools intersect command) <strong>18, try (note the -u parameter is required to get the unique number of SVs)</strong></p>
-<p><code>bedtools intersect -u -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | wc -l</code></p>
-<p>2. How many SVs found in ERR1015069.dels.vcf do not overlap with a gene? (<strong>Hint</strong>: note the -v parameter to bedtools intersect) <strong>9, try</strong></p>
-<p><code>bedtools intersect -v -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | wc -l</code></p>
-<p>3. How many SVs found in ERR1015069.dels.vcf overlap with a more strict definition of 50%?</p>
-<p><strong>14, try</strong></p>
-<p><code>bedtools intersect -u -f 0.5 -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | wc -l</code></p>
-<p>4. How many features does the deletion at <strong>VII:811446</strong> overlap with? What type of genes? Note you will need to also use the -wb option in bedtools intersect.</p>
-<p><code>bedtools intersect -wb -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | grep 811446</code></p>
-<p><strong>4 features, all of them are protein coding genes (biotype=protein_coding)</strong></p>
-<p>5. How many features does the deletion at XII:650823 overlap with? What type of genes? Note you will need to also use the -wb option in bedtools intersect.</p>
-<p><code>bedtools intersect -wb -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3 | grep 811446</code></p>
-<p><strong>2 features, all of them are protein coding genes (biotype=protein_coding)</strong></p>
-<p>6. What is the closest gene to the structural variant at IV:384220 in ERR1015069.dels.vcf?</p>
-<p><strong>YDL037C, try</strong></p>
-<p><code>bedtools closest -d -a ERR1015069.dels.vcf -b Saccharomyces_cerevisiae.R64-1-1.82.genes.gff3| grep IV | grep 384220</code></p>
-<p>5. How many SVs overlap between the two files ERR1015069.dels.vcf and ERR1015121.dels.vcf? <strong>27, try</strong></p>
-<p><code>bedtools intersect -u -a ERR1015069.dels.vcf -b ERR1015121.dels.vcf | wc -l</code></p>
-<p>6. How many SVs have a 90% reciprocal overlap between the two files ERR1015069.dels.vcf and ERR1015121.dels.vcf (<strong>Hint</strong>: first find the option for reciprocal overlap by typing: bedtools intersect -h) <strong>24, try</strong></p>
-<p><code>bedtools intersect -u -r -f 0.9 -a ERR1015069.dels.vcf -b ERR1015121.dels.vcf | wc -l</code></p>
+<section id="structural-variants" class="level3">
+<h3 class="anchored" data-anchor-id="structural-variants">Structural variants</h3>
+<p>The solutions to the exercises can be found on the <a href="https://lms.wellcomeconnectingscience.org/mod/page/view.php?id=10767&amp;forceview=1">LMS</a>.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
