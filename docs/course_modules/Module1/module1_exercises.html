@@ -666,14 +666,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ngs-data-formats-and-qc" id="toc-ngs-data-formats-and-qc" class="nav-link active" data-scroll-target="#ngs-data-formats-and-qc">NGS Data formats and QC</a>
+  <li><a href="#file-formats-and-qc" id="toc-file-formats-and-qc" class="nav-link active" data-scroll-target="#file-formats-and-qc">File Formats and QC</a>
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#tutorial-sections" id="toc-tutorial-sections" class="nav-link" data-scroll-target="#tutorial-sections">Tutorial sections</a></li>
   <li><a href="#running-the-commands-from-this-tutorial" id="toc-running-the-commands-from-this-tutorial" class="nav-link" data-scroll-target="#running-the-commands-from-this-tutorial">Running the commands from this tutorial</a></li>
   <li><a href="#lets-get-started" id="toc-lets-get-started" class="nav-link" data-scroll-target="#lets-get-started">Let’s get started!</a></li>
   </ul></li>
-  <li><a href="#data-formats-for-ngs-data" id="toc-data-formats-for-ngs-data" class="nav-link" data-scroll-target="#data-formats-for-ngs-data">Data formats for NGS data</a>
+  <li><a href="#data-formats" id="toc-data-formats" class="nav-link" data-scroll-target="#data-formats">Data formats</a>
   <ul class="collapse">
   <li><a href="#fasta" id="toc-fasta" class="nav-link" data-scroll-target="#fasta">FASTA</a></li>
   <li><a href="#fastq" id="toc-fastq" class="nav-link" data-scroll-target="#fastq">FASTQ</a></li>
@@ -689,7 +689,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#bcftools-view" id="toc-bcftools-view" class="nav-link" data-scroll-target="#bcftools-view">bcftools view</a></li>
   <li><a href="#bcftools-query" id="toc-bcftools-query" class="nav-link" data-scroll-target="#bcftools-query">bcftools query</a></li>
   <li><a href="#gvcf" id="toc-gvcf" class="nav-link" data-scroll-target="#gvcf">gVCF</a></li>
-  <li><a href="#qc-assessment-of-ngs-data" id="toc-qc-assessment-of-ngs-data" class="nav-link" data-scroll-target="#qc-assessment-of-ngs-data">QC assessment of NGS data</a></li>
+  <li><a href="#qc-assessment" id="toc-qc-assessment" class="nav-link" data-scroll-target="#qc-assessment">QC assessment</a></li>
   <li><a href="#base-quality" id="toc-base-quality" class="nav-link" data-scroll-target="#base-quality">Base quality</a></li>
   <li><a href="#other-base-calling-errors" id="toc-other-base-calling-errors" class="nav-link" data-scroll-target="#other-base-calling-errors">Other base calling errors</a></li>
   <li><a href="#mismatches-per-cycle" id="toc-mismatches-per-cycle" class="nav-link" data-scroll-target="#mismatches-per-cycle">Mismatches per cycle</a></li>
@@ -733,10 +733,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="ngs-data-formats-and-qc" class="level2">
-<h2 class="anchored" data-anchor-id="ngs-data-formats-and-qc">NGS Data formats and QC</h2>
+<section id="file-formats-and-qc" class="level2">
+<h2 class="anchored" data-anchor-id="file-formats-and-qc">File Formats and QC</h2>
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p><strong><em>For the following exercises, you would need access to the course Virtual Machine.</em></strong></p>
 <p>There are several file formats for storing Next Generation Sequencing (NGS) data. In this tutorial we will look at some of the most common formats for storing NGS reads and variant data. We will cover the following formats:</p>
 <p>FASTQ - This format stores unaligned read sequences with base qualities</p>
 <p>SAM/BAM - This format stores unaligned or aligned reads (text and binary formats)</p>
@@ -771,8 +772,8 @@ ul.task-list li input[type="checkbox"] {
 <p>To get started with the tutorial, go to the first section: Data formats</p>
 </section>
 </section>
-<section id="data-formats-for-ngs-data" class="level2">
-<h2 class="anchored" data-anchor-id="data-formats-for-ngs-data">Data formats for NGS data</h2>
+<section id="data-formats" class="level2">
+<h2 class="anchored" data-anchor-id="data-formats">Data formats</h2>
 <p>Here we will take a closer look at some of the most common NGS data formats. First, check you are in the correct directory:</p>
 <p><code>pwd</code></p>
 <p>It should display something like:</p>
@@ -952,8 +953,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Q27: How many reference reads does the block have?</strong></p>
 <p>Now continue to the next section of the tutorial: QC assessment of NGS data.</p>
 </section>
-<section id="qc-assessment-of-ngs-data" class="level3">
-<h3 class="anchored" data-anchor-id="qc-assessment-of-ngs-data">QC assessment of NGS data</h3>
+<section id="qc-assessment" class="level3">
+<h3 class="anchored" data-anchor-id="qc-assessment">QC assessment</h3>
 <p>QC is an important part of any analysis. In this section we are going to look at some of the metrics and graphs that can be used to assess the QC of NGS data.</p>
 </section>
 <section id="base-quality" class="level3">
@@ -1129,7 +1130,7 @@ ul.task-list li input[type="checkbox"] {
 <p>This also generated an index file, <code>1kg.bcf.csi</code>.</p>
 <p>To convert a VCF file to BCF, we can run a similar command. If we want to keep the original BCF, we need to give the new one a different name so that the old one is not overwritten:</p>
 <p><code>bcftools view -O b -o data/1kg_2.bcf data/1kg.vcf.gz</code></p>
-<p>Congratulations you have reached the end of the Data formats and QC tutorial!</p>
+<p><strong><em>Congratulations you have reached the end of the File Formats and QC tutorial!</em></strong></p>
 
 
 </section>

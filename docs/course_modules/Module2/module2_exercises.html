@@ -675,7 +675,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#running-the-commands-from-this-tutorial" id="toc-running-the-commands-from-this-tutorial" class="nav-link" data-scroll-target="#running-the-commands-from-this-tutorial">Running the commands from this tutorial</a></li>
   <li><a href="#lets-get-started" id="toc-lets-get-started" class="nav-link" data-scroll-target="#lets-get-started">Let’s get started!</a></li>
   </ul></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
   <li><a href="#performing-read-alignment" id="toc-performing-read-alignment" class="nav-link" data-scroll-target="#performing-read-alignment">Performing Read Alignment</a>
   <ul class="collapse">
   <li><a href="#viewing-the-reference-genome" id="toc-viewing-the-reference-genome" class="nav-link" data-scroll-target="#viewing-the-reference-genome">Viewing the reference genome</a></li>
@@ -693,7 +692,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#load-the-reference-genome" id="toc-load-the-reference-genome" class="nav-link" data-scroll-target="#load-the-reference-genome">Load the reference genome</a></li>
   <li><a href="#igv-toolbar-and-genome-ruler" id="toc-igv-toolbar-and-genome-ruler" class="nav-link" data-scroll-target="#igv-toolbar-and-genome-ruler">IGV toolbar and genome ruler</a></li>
   <li><a href="#sequence-viewer" id="toc-sequence-viewer" class="nav-link" data-scroll-target="#sequence-viewer">Sequence viewer</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><img src="images/sequence viewer.png" class="img-fluid"></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><img src="images/sequence viewer.png" class="img-fluid"></a></li>
   <li><a href="#whole-genome-view" id="toc-whole-genome-view" class="nav-link" data-scroll-target="#whole-genome-view">Whole genome view</a></li>
   <li><a href="#chromosome-view" id="toc-chromosome-view" class="nav-link" data-scroll-target="#chromosome-view">Chromosome view</a></li>
   <li><a href="#region-view" id="toc-region-view" class="nav-link" data-scroll-target="#region-view">Region view</a></li>
@@ -703,7 +702,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#coverage-information" id="toc-coverage-information" class="nav-link" data-scroll-target="#coverage-information">Coverage information</a></li>
   <li><a href="#viewing-individual-read-alignment-information" id="toc-viewing-individual-read-alignment-information" class="nav-link" data-scroll-target="#viewing-individual-read-alignment-information">Viewing individual read alignment information</a></li>
   <li><a href="#igv-configuration" id="toc-igv-configuration" class="nav-link" data-scroll-target="#igv-configuration">IGV configuration</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><img src="images/igv5.png" class="img-fluid"></a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><img src="images/igv5.png" class="img-fluid"></a></li>
   </ul></li>
   <li><a href="#ngs-workflows" id="toc-ngs-workflows" class="nav-link" data-scroll-target="#ngs-workflows">NGS Workflows</a>
   <ul class="collapse">
@@ -718,7 +717,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#visualise-the-alignment" id="toc-visualise-the-alignment" class="nav-link" data-scroll-target="#visualise-the-alignment">Visualise the alignment</a></li>
   <li><a href="#load-the-reference-genome-1" id="toc-load-the-reference-genome-1" class="nav-link" data-scroll-target="#load-the-reference-genome-1">Load the reference genome</a></li>
   <li><a href="#load-the-alignment-1" id="toc-load-the-alignment-1" class="nav-link" data-scroll-target="#load-the-alignment-1">Load the alignment</a></li>
-  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1">Exercises</a></li>
+  <li><a href="#visualise-the-alignment-exercises" id="toc-visualise-the-alignment-exercises" class="nav-link" data-scroll-target="#visualise-the-alignment-exercises">Visualise the Alignment Exercises</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -749,6 +748,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="read-alignment">Read Alignment</h2>
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p><strong><em>For the following exercises, you would need access to the course Virtual Machine.</em></strong></p>
 <p>Sequence alignment in NGS is the process of determining the most likely source of the observed DNA sequencing read within the reference genome sequence.</p>
 </section>
 <section id="sequence-alignment" class="level3">
@@ -789,9 +789,6 @@ ul.task-list li input[type="checkbox"] {
 <p>To get started with the tutorial, head to the first section: Performing read alignment</p>
 </section>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1"></h2>
-</section>
 <section id="performing-read-alignment" class="level2">
 <h2 class="anchored" data-anchor-id="performing-read-alignment">Performing Read Alignment</h2>
 <p>Here we will use the BWA aligner to align a smll set of Illumina sequencing data to the Mus Musculus reference genome. We will align genomic sequence (from Whole-Genome Sequencing) from a mouse embryo which has been mutagenised while the one-cell stage using CRISPR-Cas9 and a gRNA targeting an exon of the Tyr gene. The successful mutation of the gene will delete one or both alleles. A bi-allelic null Tyr mouse will be albino, but otherwise healthy.</p>
@@ -806,7 +803,6 @@ ul.task-list li input[type="checkbox"] {
 <p>View the file with <em>zless</em> (we use <em>zless</em> instead of <em>less</em> because the file is compressed):</p>
 <p><code>zless GRCm38.68.dna.toplevel.chr7.fa.gz</code></p>
 <p><strong>Q1: What is the length of chromosome 7 of the mouse genome? (Hint: Look at the fasta header for chromosome 7)</strong></p>
-<p><code>................................................................................................</code></p>
 <p>Similar to a BAM file, to allow fast retrieval of data, an index file is often required. You should check for the presence of fasta indexes for the genome in the ‘<em>ref</em>’ directory:</p>
 <p>GRCm38.68.dna.toplevel.chr7.fa.gz.amb … GRCm38.68.dna.toplevel.chr7.fa.gz.sa</p>
 <p>These are created by BWA: suffixtrees, bwt transform etc.</p>
@@ -827,7 +823,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Now use <em>samtools</em> to convert the SAM file <em>md5638.sam</em> created in the previous step into a BAM file called <em>md5638.bam</em>.</p>
 <p><code>samtools view -O BAM -o md5638.bam md5638.sam</code></p>
 <p><strong>Q2: How much space is saved by using a BAM file instead of a SAM file?</strong></p>
-<p><code>................................................................................................</code></p>
 </section>
 <section id="sort-and-index-the-bam-file" class="level3">
 <h3 class="anchored" data-anchor-id="sort-and-index-the-bam-file">Sort and index the BAM file</h3>
@@ -853,7 +848,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Now run <em>MarkDuplicates</em> using the ‘<em>I=</em>’ option to specify the input BAM file and the ‘<em>O=</em>’ option to specify the output file (e.g.&nbsp;<em>md5638.markdup.bam</em>). You will also need to specify the duplication metrics output file using ‘<em>M=</em>’ (e.g.&nbsp;<em>md5638.markdup.metrics</em>).</p>
 <p><code>picard MarkDuplicates I=md5638.sorted.bam O=md5638.markdup.bam M=md5638.metrics.txt</code></p>
 <p><strong>Q3: From looking at the output metrics file - how many reads were marked as duplicates? What was the percent duplication?</strong></p>
-<p><code>................................................................................................</code></p>
 <p>Don’t forget to generate an index for the new bam file using samtools.</p>
 <p><code>samtools index md5638.markdup.bam</code></p>
 </section>
@@ -917,8 +911,8 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="sequence-viewer">Sequence viewer</h3>
 <p>The sequence viewer shows the genome at the single nucleotide level. You won’t be able to see the sequence until you are zomed in. Let’s try it, select the zooom in (+) option in the top right of the screeen. As you start to zoom in (+), you will see that each nucleotide is represented by a coloured bar (red=T, yellow=G, blue=C and green=A). This makes it easier to spot repetitive regions in the genome. Carry on zooming in (+) and you will see the individual nucleotides.</p>
 </section>
-<section id="section-2" class="level3">
-<h3 class="anchored" data-anchor-id="section-2"><img src="images/sequence viewer.png" class="img-fluid"></h3>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1"><img src="images/sequence viewer.png" class="img-fluid"></h3>
 <p>3.3 Navigation in IGV</p>
 <p>There are several views in IGV</p>
 <ul>
@@ -995,19 +989,19 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/igv4.png" class="img-fluid"></p>
 <p>Your IGV session should look similar to:</p>
 </section>
-<section id="section-3" class="level3">
-<h3 class="anchored" data-anchor-id="section-3"><img src="images/igv5.png" class="img-fluid"></h3>
-<p>3.7 Exercises</p>
-<p>Go to chromosome chr7, positions 87,483,625-87,484,330 using the navigation bar across the top. Take in the glorious view of a genome pileup. Stop and smell the roses! Click on stuff!</p>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2"><img src="images/igv5.png" class="img-fluid"></h3>
+<p><strong>3.7 Exercises</strong></p>
+<p><strong>Q1: Go to chromosome chr7, positions 87,483,625-87,484,330 using the navigation bar across the top. Take in the glorious view of a genome pileup. Stop and smell the roses! Click on stuff!</strong></p>
 <p>Scroll around, zoom in and out a bit!</p>
-<p>2. Go back to chromosome 7:87,483,625-87,484,330. What is the (rough) coverage across this region? (Hint: Look at the coverage track)</p>
-<p>Can you spot the three mutant variants (two small and one larger) in this region? State what the evidence is for them?</p>
+<p><strong>Q2: Go back to chromosome 7:87,483,625-87,484,330. What is the (rough) coverage across this region? (Hint: Look at the coverage track)</strong></p>
+<p><strong>Q3: Can you spot the three mutant variants (two small and one larger) in this region? State what the evidence is for them?</strong></p>
 <p><strong>Hints</strong></p>
 <p>• Hint1: Look around 87,483,960 for an insertion. How large is it? How many reads does it occur in?</p>
 <p>• Hint2: Look around 87,483,960 for a deletion. How large is it? How many reads does it occur in?</p>
 <p>• Hint3: Zoom out slightly and watch the coverage track between 87,483,700 - 87,484,200.</p>
 <p>Once you’ve spotted the large change look at reference sequence the edges of the mutation to hazard a guess as to its mechanism.</p>
-<p>4. Can you venture a guess as to what happened here? Why are these mutations present?</p>
+<p><strong>Q4. Can you venture a guess as to what happened here? Why are these mutations present?</strong></p>
 <p><strong>Congratulations</strong> you have completed the Read Alignment tutorial. If you have time left then continue to the next (optional) section of the tutorial: Alignment workflows.</p>
 <p>Here is an additional IGV tutorial and refresher: <a href="https://github.com/sanger-pathogens/pathogen-informatics-training/blob/master/Notebooks/IGV/IGV.pdf." class="uri">https://github.com/sanger-pathogens/pathogen-informatics-training/blob/master/Notebooks/IGV/IGV.pdf.</a> You can find a copy of this tutorial in your manual. Unfortunately, there is not enough time to complete this tutorial now but you may find it useful to look at it after the course.</p>
 </section>
@@ -1113,18 +1107,18 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/load align1.png" class="img-fluid"></p>
 <p><img src="images/load align2.png" class="img-fluid" width="373"></p>
 </section>
-<section id="exercises-1" class="level3">
-<h3 class="anchored" data-anchor-id="exercises-1">Exercises</h3>
-<p><strong>1. Go to Chromosome IV and position 764,292. (Hint: use the navigation bar across the top)</strong></p>
-<p><strong>2. What is the reference base at this position?</strong></p>
-<p><strong>3. Do the reads agree with the reference base?</strong></p>
-<p><strong>4. What about the adjacent position (IV:764,293)? What is the reference base at this position? Is it supported by the reads?</strong></p>
-<p><strong>5. Go to Chromosome IV and position 766,589.</strong></p>
-<p><strong>6. What sort of mutation are the alignments indicating might be present?</strong></p>
-<p><strong>7. Go to Chromosome IV and position 770,137 using the navigation bar across the top.</strong></p>
-<p><strong>8. What sort of mutation are the alignments indicating might be present? Is there anything in the flanking sequence of the reference genome that might make you suspicious about this mutation?</strong></p>
-<p><strong>9. Convert the BAM file to a CRAM file</strong></p>
-<p>You have reached the end of the Read Alignment tutorial.</p>
+<section id="visualise-the-alignment-exercises" class="level3">
+<h3 class="anchored" data-anchor-id="visualise-the-alignment-exercises">Visualise the Alignment Exercises</h3>
+<p><strong>Q1: Go to Chromosome IV and position 764,292. (Hint: use the navigation bar across the top)</strong></p>
+<p><strong>Q2: What is the reference base at this position?</strong></p>
+<p><strong>Q3: Do the reads agree with the reference base?</strong></p>
+<p><strong>Q4: What about the adjacent position (IV:764,293)? What is the reference base at this position? Is it supported by the reads?</strong></p>
+<p><strong>Q5: Go to Chromosome IV and position 766,589.</strong></p>
+<p><strong>Q6: What sort of mutation are the alignments indicating might be present?</strong></p>
+<p><strong>Q7: Go to Chromosome IV and position 770,137 using the navigation bar across the top.</strong></p>
+<p><strong>Q8: What sort of mutation are the alignments indicating might be present? Is there anything in the flanking sequence of the reference genome that might make you suspicious about this mutation?</strong></p>
+<p><strong>Q9: Convert the BAM file to a CRAM file</strong></p>
+<p><strong><em>You have reached the end of the Read Alignment tutorial.</em></strong></p>
 
 
 </section>
