@@ -60,21 +60,15 @@ By the end of this module, you should be able to:
 
 Pre-recorded lecture
 
-# Assessment quiz
-
-[Questions](module3_assessment.qmd)
-
-[Answers](module3_assessement_answers.qmd)
-
-# Summary of this module
-
 # Teaching guidance
 
 [Instructor notes](module3_instructor_notes.qmd)
 
 # Datasets
 
-Practice files for this module can be found on [Github](https://github.com/WCSCourses/Precourses_DataRepo/tree/main/course_data_2025/linux_googlecolab_data).
+We recommend that you follow the exercises using the course virtual machine.
+
+The datasets used in this exercise are stored on the virtual machine.
 
 # Platform Guidance
 

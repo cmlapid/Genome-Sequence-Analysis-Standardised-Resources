@@ -3,4 +3,4 @@ title: "Platform guidance"
 format: html
 ---
 
-For the hands-on exercise, you will need a variant calling tool (such as bcftools or GATK) and a visualization tool (IGV) installed. These run on Linux/Mac, and Windows users can use WSL or a Docker container we provide.
+Please check the [VM guide](../VM_guide/VM_Guide.qmd) on how to download and install the course VM.
