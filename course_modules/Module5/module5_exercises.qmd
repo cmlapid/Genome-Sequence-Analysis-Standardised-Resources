@@ -9,11 +9,25 @@ format: html
 
 Genome assembly is the process of taking a large number of fragments of DNA and putting them back together to create a representation of the original DNA sequence from which they originated.
 
-### Learning outcomes
+### ![](images/contigs.png){width="486"}
 
 Many genomes contain large numbers of repeat sequences. Often these repeats are thousands of nucleotides long, and some occur in many different locations in the genome. This makes genome assembly a very difficult computational problem to solve. However, there are many genome assembly tools that exist that can produce long contiguous sequences (contigs) from sequencing reads. The assembly tool that you use will be determined by different factors, largely this will be the length of the sequencing reads and the sequencing technology used to produce the reads.
 
 In this practical we will assemble one chromosome of a malaria parasite: *Plasmodium falciparum*, the IT clone. We have sequenced the genome with both PacBio and Illumina and pre-filtered the reads to select only those reads from a single chromosome.
+
+### Learning outcomes
+
+On completion of the tutorial, you can expect to be able to:
+
+• Describe the different approaches to genome assembly
+
+• Generate a genome assembly from illumina data
+
+• Generate a genome assembly from PacBio data
+
+• Generate statistics to evaluate the quality of a genome assembly
+
+• Estimate the size of a genome assembly
 
 ### Tutorial sections
 
@@ -113,11 +127,17 @@ There are several approaches (algorithms) that can be used to generate a set of 
 
 Examples of assembly software that use this approach are **velvet, ABySS, SPAdes, wtdbg2**.
 
+![](images/assembly.png){width="543"}
+
 ### Exercise
 
 Here we are going to build a de Brujin graph by hand from a set of short reads! Using the 6bp reads listed below, manually create the de Brujin graph and find the contig(s).
 
+![](images/debruijn.png){width="450"}
+
 Using a k-mer value of k=5 produces the following k-mers of length 5 from the reads above. To finish the graph, join k-mers that overlap by 4 bases.
+
+![](images/kmer5.png){width="450"}
 
 Questions:
 
@@ -153,7 +173,7 @@ To see all possible options for velveth use:
 
 Now use **velvetg** to build the graph and find the path through the graph (similar to what we did manually in the previous section):
 
-**velvetg k.assembly.49 -exp_cov auto -ins_length 350**
+**`velvetg k.assembly.49 -exp_cov auto -ins_length 350`**
 
 The first parameter k.assembly.49 specifies the working directory as created with the velveth command. The second **-exp_cov** auto instructs velvet to find the median read coverage automatically rather than specifying it yourself. Finally, **-ins_length** specifies the insert size of the sequencing library used. There is a lot of output printed to the screen, but the most important information is the last line:
 
@@ -173,7 +193,9 @@ The higher, the better! (but not always!)
 
 • The last two numbers tell us how many reads were used from the 7.7 million pairs input data.
 
-To see all possible options for velvetg use: `velvetg`
+To see all possible options for velvetg use:
+
+`velvetg`
 
 Now let’s try to improve the quality of the assembly by varying some of the input parameters to velvet. Two parameters that can play a role in improving the assembly are **-cov_cutoff** and **-min_contig_lgth**.
 
@@ -189,9 +211,9 @@ Note as we are not changing the k-mer size, we do not need run the **velveth** c
 
 Generally, the k-mer size has the biggest impact on assembly results. Let us make a few other assemblies for different k-mer sizes i.e. 55, 41. Here is the example for k-mer length of 55.
 
-**velveth k.assembly.55 55 -shortPaired -fastq IT.Chr5_1.fastq IT.Chr5_2.fastq**
+**`velveth k.assembly.55 55 -shortPaired -fastq IT.Chr5_1.fastq IT.Chr5_2.fastq`**
 
-**velvetg k.assembly.55 -exp_cov auto -ins_length 350 -min_contig_lgth 200 -cov_cutoff 5**
+**`velvetg k.assembly.55 -exp_cov auto -ins_length 350 -min_contig_lgth 200 -cov_cutoff 5`**
 
 Note: If you find that you are having trouble running the velvet assemblies or if it is running for longer than 10-15 mins then quit the command (Ctrc-C). A pre-generated set of Illumina assemblies can be found at:
 
@@ -207,7 +229,15 @@ Type:
 
 `assembly-stats k.assembly*/*.fa`
 
+![](images/velveth.png){width="479"}
+
 Write down the results for each assembly made using different k-mer sizes. Which one looks the best?
+
+| k-mer | nodes | n50 | average contig | largest contig |
+|-------|-------|-----|----------------|----------------|
+| 41    |       |     |                |                |
+| 49    |       |     |                |                |
+| 55    |       |     |                |                |
 
 **Question: What is the best choice for k?**
 
@@ -221,9 +251,11 @@ The number of mates you need to join two contigs is defined by the parameter **-
 
 Here is the description:
 
-**-min_pair_count \<integer\>**: minimum number of paired end connections to justify the scaffolding of two long contigs (default: 5)
+**`-min_pair_count <integer>`**`: minimum number of paired end connections to justify the scaffolding of two long contigs (default: 5)`
 
 Here is a schema:
+
+![](images/schema.png){width="361"}
 
 It might be worth mentioning, that incorrect scaffolding is the most common source of error in assembly (so called mis-assemblies). If you lower the min_pair_count too much, the likelihood of generating errors increases.
 
@@ -287,7 +319,7 @@ You should see an image similar to the ones shown below. Notice the bump to righ
 
 **3. Does this seem reasonable?**
 
-We have used jellyfish to pre-generate a set of k-mer histograms for a handful of other species. These histo files can be found in the data directory.
+We have used `jellyfish` to pre-generate a set of k-mer histograms for a handful of other species. These histo files can be found in the data directory.
 
 **`ls *.histo`**
 
@@ -297,15 +329,17 @@ fAnaTes1.jf21.histo: **What is the bulge to the left of the main peak here?**
 
 `Rscript genomescope.R fAnaTes1.jf21.histo 21 150 fAnaTes1.jf21`
 
-f DreSAT1.jf21.histo: **What is the striking feature of this genome?**
+**fDreSAT1.jf21.histo**: What is the striking feature of this genome?
 
-fMasArm1.jf21.histo: **You should see a nice tight diploid peak for this sample. It has very low heterozygosity - similar to human data.**
+**fMasArm1.jf21.histo:** You should see a nice tight diploid peak for this sample. It has very low heterozygosity - similar to human data.
 
-fSalTru1.jf21.histo: **This genome was actually haploid. How do we interpret the features in the genomescope profile?**
+**fSalTru1.jf21.histo:** This genome was actually haploid. How do we interpret the features in the genomescope profile?
+
+![](images/fdresat.png){width="437"}
 
 Now let us go back to our PacBio assembly: PacBio assembly
 
-## More on PacBio Genome Assembly 
+## More on PacBio Genome Assembly
 
 We have generated an assembly for the *Plasmodium falciparum* chromosome from our Illumina data.
 
@@ -349,8 +383,6 @@ Do the same for wtdbg.ctg.lay.fasta and then compare some basic statistics.
 
 `samtools faidx wtdbg.ctg.lay.fasta`
 
-### Polishing PacBio assembly
-
 `bwa mem -t2 wtdbg.ctg.lay.fasta IT.Chr5_1.fastq IT.Chr5_2.fastq | samtools sort-@2 - | samtools mpileup -f wtdbg.ctg.lay.fasta -ug - | bcftools call -mv >wtdbg.vcf`
 
 `bcftools stats canu.vcf | grep ^SN`
@@ -360,6 +392,8 @@ Do the same for wtdbg.ctg.lay.fasta and then compare some basic statistics.
 **Question: What do you notice in terms of the number of SNP and indel calls?**
 
 The wtdbg2 assembly has more variants due to having more errors. This is mainly due to a lack of polishing or error correction - something that the canu assembler performs, but the wtdbg2 assembler does not.
+
+### Polishing PacBio assembly
 
 Correcting errors is an important step in making an assembly, especially from noisy long ready data. Not polishing an assembly can lead to genes not being identified due to insertion and deletion errors in the assembly sequence. To polish a genome assembly with Illumina data we use bcftools consensus to change homozygous differences between the assembly and the Illumina data to match the Illumina data
 

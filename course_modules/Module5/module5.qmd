@@ -53,10 +53,6 @@ On completion of the tutorial, you can expect to be able to:
 
 # Lecture recording, notes and scripts
 
-# Check you knowledge quiz
-
-[Questions](module5_assessment.qmd)
-
 # Summary of this module
 
 # Teaching guidance
@@ -65,7 +61,9 @@ On completion of the tutorial, you can expect to be able to:
 
 # Datasets
 
-Practice files for this module can be found on [Github](https://github.com/WCSCourses/Precourses_DataRepo/tree/main/course_data_2025/linux_googlecolab_data).
+We recommend that you follow the exercises using the course virtual machine.
+
+The datasets used in this exercise are stored on the virtual machine.
 
 # Platform Guidance
 

@@ -389,7 +389,7 @@ Read alignment is just the first part of that. Once you have a BAM file for each
 
 The figure below outlines a typical NGS workflow:
 
-![](images/ngs%20workflow.png) In this part of the tutotial, we have two lanes of illumina sequencing data produced from a single library of yeast. We will use the BWA aligner to align the data to the Saccromyces cerevisiae genome (<ftp://ftp.ensembl.org/pub/current_fasta/saccharomyces_cerevisiae/dna/>) and produce a merged BAM file for the library.
+![](images/ngs%20workflow.png) In this part of the tutotial, we have two lanes of illumina sequencing data produced from a single library of yeast. We will use the BWA aligner to align the data to the Saccromyces cerevisiae genome (<https://ftp.ensembl.org/pub/current_fasta/saccharomyces_cerevisiae/dna/>) and produce a merged BAM file for the library.
 
 To begin go to the following directory:
 

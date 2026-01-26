@@ -484,9 +484,8 @@ GA4GH is organized into several working groups, each focusing on a specific aspe
 
 ### **File Format Standards**
 
-GA4GH maintains file format standards through resources like the **HTS Specifications** repository ([[http://samtools.github.io/hts-specs/]{.underline}](#0 "http://samtools.github.io/hts-specs/")), which supports interoperability and efficient data management in genomics.
+GA4GH maintains file format standards through resources like the **HTS Specifications** repository ([[http://samtools.github.io/hts-specs/]{.underline}](http://samtools.github.io/hts-specs/)), which supports interoperability and efficient data management in genomics.
 
-**Additional Resources:\
-**1. [[File format tutorial - University of Connecticut]{.underline}](https://bioinformatics.uconn.edu/resources-and-events/tutorials-2/file-formats-tutorial/)\
-2. [[UCSC Galaxy - Data file formats]{.underline}](https://genome.ucsc.edu/FAQ/FAQformat.html)[\
-]{.underline}3. [[12 Common Bioinformatics Files Types Explained]{.underline}](https://www.youtube.com/watch?v=fQqhKOtostg) (Youtube Video)\
+**Additional Resources:**\
+1. [[UCSC Galaxy - Data file formats]{.underline}](https://genome.ucsc.edu/FAQ/FAQformat.html)[\
+]{.underline}2. [[12 Common Bioinformatics Files Types Explained]{.underline}](https://www.youtube.com/watch?v=fQqhKOtostg) (Youtube Video)\
