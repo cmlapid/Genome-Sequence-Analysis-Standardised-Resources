@@ -43,8 +43,6 @@ This tutorial was written by Jacqui Keane based on material from Thomas Keane.
 
 [Exercises](module4_exercises.qmd)
 
-[Solutions](module4_solutions.qmd)
-
 # Presentation slides
 
 (PPT/PDF, to be generated from the module manual. Instructions on how to that will be added here.)

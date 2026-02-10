@@ -45,8 +45,6 @@ On completion of the tutorial, you can expect to be able to:
 
 [Exercises](module5_exercises.qmd)
 
-[Solutions](module5_solutions.qmd)
-
 # Presentation slides
 
 (PPT/PDF, to be generated from the module manual. Instructions on how to that will be added here.)

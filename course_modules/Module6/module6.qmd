@@ -43,8 +43,6 @@ By the end of this tutorial you can expect to be able to:
 
 [Exercises](module6_exercises.qmd)
 
-[Solutions](module6_solutions.qmd)
-
 # Presentation slides
 
 (PPT/PDF, to be generated from the module manual. Instructions on how to that will be added here.)
