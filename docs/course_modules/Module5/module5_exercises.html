@@ -627,10 +627,13 @@ ul.task-list li input[type="checkbox"] {
 <p>• Overlap Layout Consensus (OLC): This approach looks at all pairs x,y of all reads and determines if there is a sufficient overlap of the two reads. If there is, then it bundles the stretches of overlap graphs into contigs. Examples of assembly software that use this approach are Falcon (PacBio), Canu(Pacbio, ONT), mnimap/miniasm.</p>
 <p>• de Brujin graph (DBG): This approach builds a graph of all subsequences of lenght k (k-mers).</p>
 <p>Examples of assembly software that use this approach are <strong>velvet, ABySS, SPAdes, wtdbg2</strong>.</p>
+<p><img src="images/assembly.png" class="img-fluid" width="543"></p>
 <section id="exercise" class="level3">
 <h3 class="anchored" data-anchor-id="exercise">Exercise</h3>
 <p>Here we are going to build a de Brujin graph by hand from a set of short reads! Using the 6bp reads listed below, manually create the de Brujin graph and find the contig(s).</p>
+<p><img src="images/debruijn.png" class="img-fluid" width="450"></p>
 <p>Using a k-mer value of k=5 produces the following k-mers of length 5 from the reads above. To finish the graph, join k-mers that overlap by 4 bases.</p>
+<p><img src="images/kmer5.png" class="img-fluid" width="450"></p>
 <p>Questions:</p>
 <p><strong>1. What is the contig sequence?</strong></p>
 <p><strong>2. What was difficult here?</strong></p>
@@ -652,7 +655,7 @@ ul.task-list li input[type="checkbox"] {
 <p>To see all possible options for velveth use:</p>
 <p><code>velveth</code></p>
 <p>Now use <strong>velvetg</strong> to build the graph and find the path through the graph (similar to what we did manually in the previous section):</p>
-<p><strong>velvetg k.assembly.49 -exp_cov auto -ins_length 350</strong></p>
+<p><strong><code>velvetg k.assembly.49 -exp_cov auto -ins_length 350</code></strong></p>
 <p>The first parameter k.assembly.49 specifies the working directory as created with the velveth command. The second <strong>-exp_cov</strong> auto instructs velvet to find the median read coverage automatically rather than specifying it yourself. Finally, <strong>-ins_length</strong> specifies the insert size of the sequencing library used. There is a lot of output printed to the screen, but the most important information is the last line:</p>
 <p>Final graph has 1455 nodes and n50 of 7527, max 38045, total 1364551, using 700301/770774 reads. (Your exact result might differ depending on the velvet version used - don’t worry).</p>
 <p>This gives you a quick idea of the result.</p>
@@ -662,7 +665,8 @@ ul.task-list li input[type="checkbox"] {
 <p>• Max is the length of the longest contig.</p>
 <p>• Total is the size of the assembly, here 1346kb.</p>
 <p>• The last two numbers tell us how many reads were used from the 7.7 million pairs input data.</p>
-<p>To see all possible options for velvetg use: <code>velvetg</code></p>
+<p>To see all possible options for velvetg use:</p>
+<p><code>velvetg</code></p>
 <p>Now let’s try to improve the quality of the assembly by varying some of the input parameters to velvet. Two parameters that can play a role in improving the assembly are <strong>-cov_cutoff</strong> and <strong>-min_contig_lgth</strong>.</p>
 <p>Using the <strong>-cov_cutoff</strong> parameter means that nodes with less than a specific k-mer count are removed from the graph.</p>
 <p>Using the <strong>-min_contig_lgth</strong> parameter means that contigs with less than a specific size are removed from the assembly.</p>
@@ -670,8 +674,8 @@ ul.task-list li input[type="checkbox"] {
 <p><code>velvetg k.assembly.49 -exp_cov auto -ins_length 350 -min_contig_lgth 200 -cov_cutoff 5</code></p>
 <p>Note as we are not changing the k-mer size, we do not need run the <strong>velveth</strong> command again.</p>
 <p>Generally, the k-mer size has the biggest impact on assembly results. Let us make a few other assemblies for different k-mer sizes i.e.&nbsp;55, 41. Here is the example for k-mer length of 55.</p>
-<p><strong>velveth k.assembly.55 55 -shortPaired -fastq IT.Chr5_1.fastq IT.Chr5_2.fastq</strong></p>
-<p><strong>velvetg k.assembly.55 -exp_cov auto -ins_length 350 -min_contig_lgth 200 -cov_cutoff 5</strong></p>
+<p><strong><code>velveth k.assembly.55 55 -shortPaired -fastq IT.Chr5_1.fastq IT.Chr5_2.fastq</code></strong></p>
+<p><strong><code>velvetg k.assembly.55 -exp_cov auto -ins_length 350 -min_contig_lgth 200 -cov_cutoff 5</code></strong></p>
 <p>Note: If you find that you are having trouble running the velvet assemblies or if it is running for longer than 10-15 mins then quit the command (Ctrc-C). A pre-generated set of Illumina assemblies can be found at:</p>
 <p><code>ls ~/course_data/assembly/data/backup/illumina_assemblies</code></p>
 </section>
@@ -682,15 +686,51 @@ ul.task-list li input[type="checkbox"] {
 <p>Another way to get more assembly statistics is to use a program called assembly-stats. It displays the number of contigs, the mean size and a lot of other useful statistics about the assembly. These numbers can be used to assess the quality of your assemblies and help you pick the “best” one.</p>
 <p>Type:</p>
 <p><code>assembly-stats k.assembly*/*.fa</code></p>
+<p><img src="images/velveth.png" class="img-fluid" width="479"></p>
 <p>Write down the results for each assembly made using different k-mer sizes. Which one looks the best?</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>k-mer</th>
+<th>nodes</th>
+<th>n50</th>
+<th>average contig</th>
+<th>largest contig</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>41</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>49</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>55</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Question: What is the best choice for k?</strong></p>
 <p>We want to choose the set of parameters that produce the assembly where the n50, average contig size and the largest contigs have the highest values, while contig number is the lowest.</p>
 <p>You will notice another statistic produced by assembly-stats is <strong>N_count</strong>, what does the <strong>N_count</strong> mean?</p>
 <p>As we know, DNA templates can be sequenced from both ends, resulting in mate pairs. Their outer distance is the insert size. Imagine mapping the reads back onto the assembled contigs. In some cases the two mates don’t map onto the same contig. We can use those mates to scaffold the two contigs e.g.&nbsp;orientate them to each other and put N’s between them, so that the insert size is correct, if enough mate pairs suggest that join. Velvet does this automatically (although you can turn it off).</p>
 <p>The number of mates you need to join two contigs is defined by the parameter <strong>-min_pair_count</strong>.</p>
 <p>Here is the description:</p>
-<p><strong>-min_pair_count &lt;integer&gt;</strong>: minimum number of paired end connections to justify the scaffolding of two long contigs (default: 5)</p>
+<p><strong><code>-min_pair_count &lt;integer&gt;</code></strong><code>: minimum number of paired end connections to justify the scaffolding of two long contigs (default: 5)</code></p>
 <p>Here is a schema:</p>
+<p><img src="images/schema.png" class="img-fluid" width="361"></p>
 <p>It might be worth mentioning, that incorrect scaffolding is the most common source of error in assembly (so called mis-assemblies). If you lower the min_pair_count too much, the likelihood of generating errors increases.</p>
 <p>Other errors are due to repeats. In a normal assembly one would expect that the repeats are all collapsed, if they are smaller than the read length. If the repeat unit is smaller than the insert size, than it is possible to scaffold over it, leaving the space for the repeats with N’s.</p>
 <p>To get the statistic for the contigs, rather than scaffolds (supercontigs), you can use seqtk to break the scaffold at any stretch of N’s with the following commands:</p>
@@ -725,14 +765,15 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>1. What is the predicted heterozygosity?</strong></p>
 <p><strong>2. What is the predicted genome size?</strong></p>
 <p><strong>3. Does this seem reasonable?</strong></p>
-<p>We have used jellyfish to pre-generate a set of k-mer histograms for a handful of other species. These histo files can be found in the data directory.</p>
+<p>We have used <code>jellyfish</code> to pre-generate a set of k-mer histograms for a handful of other species. These histo files can be found in the data directory.</p>
 <p><strong><code>ls *.histo</code></strong></p>
 <p>Try running <strong>genomscope</strong> on these. The read length for all of the datasets is 150bp.</p>
 <p>fAnaTes1.jf21.histo: <strong>What is the bulge to the left of the main peak here?</strong></p>
 <p><code>Rscript genomescope.R fAnaTes1.jf21.histo 21 150 fAnaTes1.jf21</code></p>
-<p>f DreSAT1.jf21.histo: <strong>What is the striking feature of this genome?</strong></p>
-<p>fMasArm1.jf21.histo: <strong>You should see a nice tight diploid peak for this sample. It has very low heterozygosity - similar to human data.</strong></p>
-<p>fSalTru1.jf21.histo: <strong>This genome was actually haploid. How do we interpret the features in the genomescope profile?</strong></p>
+<p><strong>fDreSAT1.jf21.histo</strong>: What is the striking feature of this genome?</p>
+<p><strong>fMasArm1.jf21.histo:</strong> You should see a nice tight diploid peak for this sample. It has very low heterozygosity - similar to human data.</p>
+<p><strong>fSalTru1.jf21.histo:</strong> This genome was actually haploid. How do we interpret the features in the genomescope profile?</p>
+<p><img src="images/fdresat.png" class="img-fluid" width="437"></p>
 <p>Now let us go back to our PacBio assembly: PacBio assembly</p>
 </section>
 </section>
@@ -762,14 +803,14 @@ ul.task-list li input[type="checkbox"] {
 <p>Do the same for wtdbg.ctg.lay.fasta and then compare some basic statistics.</p>
 <p><code>bwa index wtdbg.ctg.lay.fasta</code></p>
 <p><code>samtools faidx wtdbg.ctg.lay.fasta</code></p>
-</section>
-<section id="polishing-pacbio-assembly" class="level3">
-<h3 class="anchored" data-anchor-id="polishing-pacbio-assembly">Polishing PacBio assembly</h3>
 <p><code>bwa mem -t2 wtdbg.ctg.lay.fasta IT.Chr5_1.fastq IT.Chr5_2.fastq | samtools sort-@2 - | samtools mpileup -f wtdbg.ctg.lay.fasta -ug - | bcftools call -mv &gt;wtdbg.vcf</code></p>
 <p><code>bcftools stats canu.vcf | grep ^SN</code></p>
 <p><code>bcftools stats wtdbg.vcf | grep ^SN</code></p>
 <p><strong>Question: What do you notice in terms of the number of SNP and indel calls?</strong></p>
 <p>The wtdbg2 assembly has more variants due to having more errors. This is mainly due to a lack of polishing or error correction - something that the canu assembler performs, but the wtdbg2 assembler does not.</p>
+</section>
+<section id="polishing-pacbio-assembly" class="level3">
+<h3 class="anchored" data-anchor-id="polishing-pacbio-assembly">Polishing PacBio assembly</h3>
 <p>Correcting errors is an important step in making an assembly, especially from noisy long ready data. Not polishing an assembly can lead to genes not being identified due to insertion and deletion errors in the assembly sequence. To polish a genome assembly with Illumina data we use bcftools consensus to change homozygous differences between the assembly and the Illumina data to match the Illumina data</p>
 <p>Run the following steps to polish the <strong>canu</strong> assembly</p>
 <p><code>bgzip -c canu.vcf &gt; canu.vcf.gz</code></p>
